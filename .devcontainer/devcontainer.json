@@ -1,0 +1,29 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+{
+  "name": "DEV",
+  "dockerComposeFile": [
+    "docker-compose.yml",
+  ],
+  "service": "app",
+  "workspaceFolder": "/projects/rcache-proxy",
+  "settings": {
+    "terminal.integrated.profile.linux": "/bin/bash",
+    "lldb.executable": "/usr/bin/lldb",
+    "files.watcherExclude": {
+      "**/target/**": true
+    },
+    "docker.host": "tcp://192.168.88.251:2375",
+  },
+  "extensions": [
+    "hdevalke.rust-test-lens",
+    "swellaby.vscode-rust-test-adapter",
+    "matklad.rust-analyzer",
+    "bungcip.better-toml",
+    "vadimcn.vscode-lldb",
+    "mutantdino.resourcemonitor",
+    "jscearcy.rust-doc-viewer",
+    "serayuzgur.crates",
+    "k--kato.intellij-idea-keybindings",
+  ],
+  "forwardPorts": [],
+}

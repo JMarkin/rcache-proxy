@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  vs-extensions:
+    external: true
+  cargo:
+    external: true
+
+services:
+  app:
+    image: jmarkin/rcache-proxy:dev
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    working_dir: /projects/rcache-proxy
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    tmpfs:
+      - /tmp:exec,rw
+      - /var/cache
+    volumes:
+      - vs-extensions:/root/.vscode-server/extensions
+      - cargo:/usr/local/cargo
+      - /projects:/projects
+    env_file: ../.env

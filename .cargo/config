@@ -1,0 +1,5 @@
+[build]
+target-dir = "/tmp"
+
+[http]
+check-revoke = false
